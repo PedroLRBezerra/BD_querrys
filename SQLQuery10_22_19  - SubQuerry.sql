@@ -35,14 +35,14 @@ select * from projeto
 select * from funcproj
  
 insert into funcionario (nome, sobrenome, logradouro, numero, bairro, cep, ddd, telefone, data_nasc, salario) values
-('Fulano',  'da Silva', 'R. Volunt·rios da Patria',    8150,   'Santana',  '05423110', '11',   '76895248', '15/05/1974',   4350.00),
+('Fulano',  'da Silva', 'R. Volunt√°rios da Patria',    8150,   'Santana',  '05423110', '11',   '76895248', '15/05/1974',   4350.00),
 ('Cicrano', 'De Souza', 'R. Anhaia', 353,   'Barra Funda',  '03598770', '11',   '99568741', '25/08/1984',   1552.00),
 ('Beltrano',    'Dos Santos',   'R. ABC', 1100, 'Artur Alvim',  '05448000', '11',   '25639854', '02/06/1963',   2250.00),
-('Tirano',  'De Souza', 'Avenida ¡guia de Haia', 4430, 'Artur Alvim',  '05448000', NULL,   NULL,   '15/10/1975',   2804.00)
+('Tirano',  'De Souza', 'Avenida √Åguia de Haia', 4430, 'Artur Alvim',  '05448000', NULL,   NULL,   '15/10/1975',   2804.00)
  
 insert into projeto values
-('ImplantaÁ„o de Sistemas','Colocar o sistema no ar'),
-('ModificaÁ„o do mÛdulo de cadastro','Modificar CRUD'),
+('Implanta√ß√£o de Sistemas','Colocar o sistema no ar'),
+('Modifica√ß√£o do m√≥dulo de cadastro','Modificar CRUD'),
 ('Teste de Sistema de Cadastro',NULL)
  
 insert into funcproj values
@@ -87,7 +87,7 @@ WHERE telefone IS NOT null
 
 ----------------------------id , nome e sobrenome concatenado dos que tem tel--------------
 
-SELECT id,nome +' '+ sobrenome AS nome_completo ,logradouro +' , ' + Cast (numero AS VARCHAR(5))+' ,'+ cep AS endereÁo , Convert (CHAR(10),data_nasc, 103) AS dta_nasc FROM funcionario
+SELECT id,nome +' '+ sobrenome AS nome_completo ,logradouro +' , ' + Cast (numero AS VARCHAR(5))+' ,'+ cep AS endere√ßo , Convert (CHAR(10),data_nasc, 103) AS dta_nasc FROM funcionario
 WHERE telefone IS NOT NULL
 
   --ORDER BY nome DESC , sobrenome ASC
@@ -145,14 +145,14 @@ SELECT  DISTINCT CONVERT(CHAR(10), data_inicio ,103) AS data_inicio
 		   select SUBSTRING('Banco de dados',7,2) AS sub
 		-- select SUBSTRING('Banco de dados',6,4) AS sub
 			
-			--LTRIM & RTRIM, TRIM tira espaÁos branco indesejaveis , L - left , R - Rigth
+			--LTRIM & RTRIM, TRIM tira espa√ßos branco indesejaveis , L - left , R - Rigth
 
 			select LTRIM(SUBSTRING('Banco de dados',6,4)) AS sub
 			select RTRIM(SUBSTRING('Banco de dados',6,4)) AS sub
 			select RTRIM(LTRIM(SUBSTRING('Banco de dados',6,4))) AS sub
 
 
-			------------------------------MANIPULA«√O DE DATA
+			------------------------------MANIPULA√á√ÉO DE DATA
 			SELECT GETDATE() AS hoje
 
 			SELECT DAY(GETDATE()) AS dia_hj, 
@@ -161,7 +161,7 @@ SELECT  DISTINCT CONVERT(CHAR(10), data_inicio ,103) AS data_inicio
 			DATEPART(WEEKDAY, GETDATE())AS DIASEMANA,
 			DATEPART(WEEK, GETDATE())AS SEMANA
 
-			-----------------------------DATEADD(DIA OU ANO OU MES , DIFEREN«A SENDO SOMA OU SUB, PARAMETRO ): DATA
+			-----------------------------DATEADD(DIA OU ANO OU MES , DIFEREN√áA SENDO SOMA OU SUB, PARAMETRO ): DATA
 			SELECT CONVERT(CHAR(10),GETDATE(),107)AS HOJE, DATEADD(DAY,10,GETDATE()) AS DAQUI_10_DIAS,
 			CONVERT(CHAR(10), DATEADD(DAY,10,GETDATE()),107) AS DAQUI_CONVERT
 
